@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    popup: path.resolve('./src/index.js'),
+    background: path.resolve('./src/background.js')
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',

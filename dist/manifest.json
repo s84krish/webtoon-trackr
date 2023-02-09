@@ -7,6 +7,14 @@
       "default_popup": "popup.html",
       "default_title": "Open the popup"
   },
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons": {
       "16": "logo192.png",
       "48": "logo192.png",
