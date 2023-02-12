@@ -12,7 +12,7 @@ const List = ({data}) => {
       {data?.map((item, index) => {
         return (
           <li key={index}>
-            {item}
+            <a href={item}></a>
             <button onClick={() => removeItem(index, data)}>x</button>
           </li>
         )
