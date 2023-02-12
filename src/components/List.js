@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 const List = ({data}) => {
 
@@ -6,14 +7,20 @@ const List = ({data}) => {
     data?.splice(index, 1);
     chrome.storage.sync.set({ list: data });
   }
+
+  const openTab = (item) => {
+    chrome.tabs.create({url: item});
+  }
   
   return (
-    <ul>
+    <ul className='list-unstyled'>
       {data?.map((item, index) => {
         return (
           <li key={index}>
-            <a href={item}></a>
-            <button onClick={() => removeItem(index, data)}>x</button>
+            <Button variant="outline-success" onClick={() => openTab(item)}>Hello!</Button>
+            <ButtonGroup size="sm">
+              <Button onClick={() => removeItem(index, data)} variant="outline-danger">X</Button>
+            </ButtonGroup>
           </li>
         )
       })}

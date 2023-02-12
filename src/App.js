@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import List from './components/List'
-import logo from './logo.svg';
+import logo from './images/logo.svg';
 
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,11 +27,14 @@ const App = () => {
 
 
   return (
-    <div className="App">
+    <div className='main-popup'>
+        <div className='header'>
+          <img src={logo} alt='Logo' className='logo'/>
+        </div>
+        <List data={data?.list}/>
         <form onSubmit={clearStorage}>
           <button>Clear</button>
         </form>
-        <List data={data?.list}/>
     </div>
   );
 }
