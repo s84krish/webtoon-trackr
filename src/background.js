@@ -9,6 +9,54 @@ chrome.runtime.onInstalled.addListener(() => {
     contexts: ['link']
   });
 
+  chrome.contextMenus.create({
+    id: 'mon',
+    parentId: 'tracker',
+    title: 'Monday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'tues',
+    parentId: 'tracker',
+    title: 'Tuesday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'wed',
+    parentId: 'tracker',
+    title: 'Wednesday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'thurs',
+    parentId: 'tracker',
+    title: 'Thursday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'fri',
+    parentId: 'tracker',
+    title: 'Friday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'sat',
+    parentId: 'tracker',
+    title: 'Saturday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'sun',
+    parentId: 'tracker',
+    title: 'Sunday',
+    contexts: ['link']
+  });
 
   chrome.storage.sync.get(["list"]).then((result) => {
     if (result.list == null){
@@ -20,22 +68,22 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log(result.list)
   });
   
-  chrome.contextMenus.onClicked.addListener(function(info){
-    console.log(info.linkUrl);
-    
-    chrome.storage.sync.get({list: []}).then((result) => {
-      const newList = result.list;
-      if (newList && Array.isArray(newList)){
-        newList.push(info.linkUrl);
+
+});
+
+chrome.contextMenus.onClicked.addListener(function(info){
+  console.log(info.linkUrl);
+  
+  chrome.storage.sync.get({list: []}).then((result) => {
+    const newList = result.list;
+    if (newList && Array.isArray(newList)){
+      newList.push(info.linkUrl);
+    }
+    chrome.storage.sync.set({ list: newList }).then(() => {
+      for (let i=0; i < newList.length; i++){
+        console.log("List " + i + " " + newList[i]);
       }
-      chrome.storage.sync.set({ list: newList }).then(() => {
-        for (let i=0; i < newList.length; i++){
-          console.log("List " + i + " " + newList[i]);
-        }
-      });
     });
   });
-  
-
 });
 
