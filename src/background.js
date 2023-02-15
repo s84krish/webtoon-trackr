@@ -9,6 +9,55 @@ chrome.runtime.onInstalled.addListener(() => {
     contexts: ['link']
   });
 
+  chrome.contextMenus.create({
+    id: 'mon',
+    parentId: 'tracker',
+    title: 'Monday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'tues',
+    parentId: 'tracker',
+    title: 'Tuesday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'wed',
+    parentId: 'tracker',
+    title: 'Wednesday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'thurs',
+    parentId: 'tracker',
+    title: 'Thursday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'fri',
+    parentId: 'tracker',
+    title: 'Friday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'sat',
+    parentId: 'tracker',
+    title: 'Saturday',
+    contexts: ['link']
+  });
+
+  chrome.contextMenus.create({
+    id: 'sun',
+    parentId: 'tracker',
+    title: 'Sunday',
+    contexts: ['link']
+  });
+
   chrome.storage.sync.get(["list"]).then((result) => {
     if (result.list == null){
       const list = new Array();
