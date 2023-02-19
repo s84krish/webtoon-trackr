@@ -24,7 +24,7 @@ const List = ({data}) => {
   }
   
   function getName(item) {
-    let text = item.split("/");
+    let text = item.link.split("/");
     if (text[2] === "www.webtoons.com"){
       text = text[5];
     } 
@@ -39,10 +39,10 @@ const List = ({data}) => {
   return (
     <ul className='list-unstyled'>
       {data?.map((item, index) => {
-        const text = getName(item);
+        let text = getName(item);
         return (
           <li key={index} className="list" onMouseEnter={() => {openMiniNav(index)}} onMouseLeave={closeMiniNav}>
-            <Button className="list-item" onClick={() => openTab(item)}>{text}</Button>
+            <Button className="list-item" onClick={() => openTab(item.link)}>{text}</Button>
             {(miniNav === index) && 
               <ButtonGroup size="sm">
                 <Button onClick={() => removeItem(index, data)} variant="outline-danger">X</Button>
