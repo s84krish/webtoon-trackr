@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { Button, ButtonGroup, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import List from './components/List'
 import logo from './images/logo.svg';
+import DayHeader from './components/DayHeader';
 
 import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS
 import './App.css';
@@ -57,6 +58,7 @@ const App = () => {
         <div className='header'>
           <img src={logo} alt='Logo' className='logo'/>
         </div>
+        <DayHeader day={displayDay}/>
         <ToggleButtonGroup type='radio' size="sm" style={{margin: '15px 0', border: '2px solid black'}} name='days' defaultValue={[9]}> 
           <ToggleButton onClick={() => setDisplayDay('1')} variant="success" value={1} id='10'>Mon</ToggleButton>
           <ToggleButton onClick={() => setDisplayDay('2')} variant="success" value={2} id='11'>Tues</ToggleButton>
@@ -68,7 +70,11 @@ const App = () => {
           <ToggleButton onClick={() => setDisplayDay('7')} variant="success" value={8} id='17'>All</ToggleButton>
           <ToggleButton onClick={() => setDisplayDay(String(currDay.getDay()))} variant="secondary" value={9} id='18'>Today</ToggleButton>
         </ToggleButtonGroup>
-        <List data={dayList}/>
+        {dayList &&
+          <div className="list-wrapper">
+            <List data={dayList}/>
+          </div>
+        }
         <form onSubmit={clearStorage}>
           <button>Clear</button>
         </form>

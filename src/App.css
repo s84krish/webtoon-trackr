@@ -1,5 +1,6 @@
 .main-popup {
   text-align: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 }
@@ -38,4 +39,16 @@
   color: black !important;
   border: none !important;
   background-color: transparent !important;
+}
+
+.list-wrapper {
+  width: 383px;
+  margin: -20px 0 20px 8.5px;
+  background-color: #9b9c9d;
+  border: 2px solid black;
+  padding-top: 12px;
+}
+
+.day-header {
+  color: black;
 }
