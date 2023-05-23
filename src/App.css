@@ -19,6 +19,7 @@
 
 
 .logo {
+  margin-top: 15px;
   margin-bottom: 10px;
   max-height: 150px;
 }
@@ -47,6 +48,8 @@
   background-color: #9b9c9d;
   border: 2px solid black;
   padding-top: 12px;
+  max-height: 240px;
+  overflow: auto;
 }
 
 .day-header {
